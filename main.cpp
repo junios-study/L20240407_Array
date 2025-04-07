@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <string>
 
 #define CARD_COUNT		52
 
@@ -39,22 +40,31 @@ int PrintCard(int CardRealNumber)
 	int CardNumber = CardRealNumber % 13 + 1;
 	int Score = CardNumber;
 
-	if (CardType == 0)
-	{
-		cout << "Heart";
-	}
-	else if (CardType == 1)
-	{
-		cout << "Clover";
-	}
-	else if (CardType == 2)
-	{
-		cout << "Space";
-	}
-	else // (CardType == 3)
-	{
-		cout << "Diamond";
-	}
+	string Types[4] = {
+		"¢¾",
+		"¡ß",
+		"¢À",
+		"¢¼"
+	};
+
+	//if (CardType == 0)
+	//{
+	//	cout << "Heart";
+	//}
+	//else if (CardType == 1)
+	//{
+	//	cout << "Clover";
+	//}
+	//else if (CardType == 2)
+	//{
+	//	cout << "Space";
+	//}
+	//else // (CardType == 3)
+	//{
+	//	cout << "Diamond";
+	//}
+
+	cout << Types[CardType];
 
 	if (CardNumber == 1)
 	{
@@ -91,10 +101,14 @@ void Print()
 	cout << "Computer" << endl;
 	ComputerScore = ComputerScore + PrintCard(Deck[0]);
 	ComputerScore += PrintCard(Deck[1]);
+	cout << "Computer Score : " << ComputerScore << endl;
+
 	cout << "================\n\n" << endl;
+
 	cout << "Player" << endl;
 	PlayerScore += PrintCard(Deck[2]);
 	PlayerScore += PrintCard(Deck[3]);
+	cout << "Player Score  : " << PlayerScore << endl;
 
 	if (ComputerScore > 21)
 	{
@@ -122,6 +136,44 @@ int main()
 	Initialize();
 	Shuffle();
 	Print();
+
+	return 0;
+	
+	//[][][\0]
+	//[][][\0]
+	//[][][\0]
+	//[][][\0]
+	const char* Type[4] = {
+		"¢¾",
+		"¡ß",
+		"¢À",
+		"¢¼"
+	};
+
+	//char Type[4][3] = {
+	//	"¢¾",
+	//	"¡ß",
+	//	"¢À",
+	//	"¢¼"
+	//};
+
+	//¹®ÀÚ¿­ X -> char Array
+	//[A][B][\0][]
+	char Temp[10] = "AB\0C";
+	//Temp[0] = 'A';
+	//Temp[1] = 'B';
+	//Temp[2] = '\0';
+	//cout << 111111;
+
+	//string Types[4] = {
+	//	"¢¾",
+	//	"¡ß",
+	//	"¢À",
+	//	"¢¼"
+	//};
+
+	//cout << Types[0] << endl;
+
 
 	return 0;
 }
