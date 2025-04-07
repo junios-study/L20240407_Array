@@ -1,66 +1,55 @@
 #include <iostream>
 #include <algorithm>
 
-#define POCKET_SIZE		52
+#define CARD_COUNT		52
 
 using namespace std;
 
-
 //global variable
-int Pocket[POCKET_SIZE] = { 0, };
-
+int Deck[CARD_COUNT] = { 0, };
 
 void Initialize()
 {
 	srand((unsigned int)time(NULL));
 
-	for (int Index = 0; Index < POCKET_SIZE; Index++)
+	for (int Index = 0; Index < CARD_COUNT; Index++)
 	{
-		Pocket[Index] = Index + 1;
+		Deck[Index] = Index + 1;
 	}
 }
 
 void Shuffle()
 {
 	int Temp = 0;
-	for (int Count = 0; Count < POCKET_SIZE * 1000; Count++)
+	for (int Count = 0; Count < CARD_COUNT * 1000; Count++)
 	{
-		int First = rand() % POCKET_SIZE;
-		int Second = rand() % POCKET_SIZE;
-		Temp = Pocket[First];
-		Pocket[First] = Pocket[Second];
-		Pocket[Second] = Temp;
+		int First = rand() % CARD_COUNT;
+		int Second = rand() % CARD_COUNT;
+		Temp = Deck[First];
+		Deck[First] = Deck[Second];
+		Deck[Second] = Temp;
 	}
 }
 
 void Print()
 {
-	for (int Index = 0; Index < POCKET_SIZE; Index++)
-	{
-		cout << Pocket[Index] << ", ";
-	}
-}
+	//Computer
+	cout << Deck[0] % 14 << ", ";
+	cout << Deck[1] % 14 << endl;
 
+	cout << "================" << endl;
+	//Player
+	cout << Deck[2] % 14 << ", ";
+	cout << Deck[3] % 14 << endl;
 
-
-int Add(int A, int B)
-{
-	return A + B; 
-}
-
-int Sub(int A, int B)
-{
-	return A - B;
 }
 
 
 int main()
 {
-	int A = 20;
-	int B = 30;
-
-
-	cout << Sub(A, B) << endl;
+	Initialize();
+	Shuffle();
+	Print();
 
 	return 0;
 }
