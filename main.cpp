@@ -1,23 +1,27 @@
 #include <iostream>
 #include <algorithm>
+
 #define POCKET_SIZE		52
 
 using namespace std;
-//[][][][][]
-int main()
+
+
+//global variable
+int Pocket[POCKET_SIZE] = { 0, };
+
+
+void Initialize()
 {
-
-	//Init()
 	srand((unsigned int)time(NULL));
-
-	int Pocket[POCKET_SIZE] = { 0, };
 
 	for (int Index = 0; Index < POCKET_SIZE; Index++)
 	{
 		Pocket[Index] = Index + 1;
 	}
+}
 
-	//Shuffle
+void Shuffle()
+{
 	int Temp = 0;
 	for (int Count = 0; Count < POCKET_SIZE * 1000; Count++)
 	{
@@ -27,14 +31,38 @@ int main()
 		Pocket[First] = Pocket[Second];
 		Pocket[Second] = Temp;
 	}
+}
 
-
-	//Print()
+void Print()
+{
 	for (int Index = 0; Index < POCKET_SIZE; Index++)
 	{
 		cout << Pocket[Index] << ", ";
 	}
+}
 
+
+
+int Add(int A, int B)
+{
+	return A + B; 
+}
+
+int Sub(int A, int B)
+{
+	return A - B;
+}
+
+
+int main()
+{
+	int A = 20;
+	int B = 30;
+
+
+	cout << Sub(A, B) << endl;
 
 	return 0;
 }
+
+
