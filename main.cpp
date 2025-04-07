@@ -133,6 +133,14 @@ void Print()
 
 int main()
 {
+	//c, C++ STL string class
+	string Message = "¾È³çÇÏ¼¼¿ä. ";
+	string Message2 = Message + " È«±æµ¿´Ô ";
+
+	cout << Message2 << endl;
+
+	return 0;
+	
 	Initialize();
 	Shuffle();
 	Print();
@@ -151,7 +159,7 @@ int main()
 	};
 
 	//char Type[4][3] = {
-	//	"¢¾",
+	//	"¢¾", //\0
 	//	"¡ß",
 	//	"¢À",
 	//	"¢¼"
